@@ -44,7 +44,6 @@ final class BTConfiguration {
     var maskBackgroundOpacity: CGFloat!
     var shouldChangeTitleText: Bool!
     
-    
     init() {
         // Path for image
         var bundle = Bundle(for: BTConfiguration.self)
