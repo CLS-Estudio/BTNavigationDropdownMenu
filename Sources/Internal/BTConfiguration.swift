@@ -47,36 +47,38 @@ final class BTConfiguration {
     init() {
         // Path for image
         var bundle = Bundle(for: BTConfiguration.self)
-                 // Get own resources bundle for SPM case
-        if let packageBundle = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
-                {
-                     bundle = packageBundle
-                 }
-                let url = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
-                let imageBundle = Bundle(url: url!)
-                let checkMarkImagePath = imageBundle?.path(forResource: "checkmark_icon", ofType: "png")
-                let arrowImagePath = imageBundle?.path(forResource: "arrow_down_icon", ofType: "png")
+        // Get own resources bundle for SPM case
+        if let packageBundle = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
+        {
+            bundle = packageBundle
+        }  else {
+              fatalError("Failed to load resource bundle for BTNavigationDropdownMenu")
+          }
+        let url = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
+        let imageBundle = Bundle(url: url!)
+        let checkMarkImagePath = imageBundle?.path(forResource: "checkmark_icon", ofType: "png")
+        let arrowImagePath = imageBundle?.path(forResource: "arrow_down_icon", ofType: "png")
         
-
+        
         // Set default values
-                self.menuTitleColor = UIColor.darkGray
-                self.cellHeight = 50
-                self.cellBackgroundColor = UIColor.white
-                self.arrowTintColor = UIColor.white
-                self.cellSeparatorColor = UIColor.darkGray
-                self.cellTextLabelColor = UIColor.darkGray
-                self.selectedCellTextLabelColor = UIColor.darkGray
-                self.cellTextLabelFont = UIFont.systemFont(ofSize: 17, weight: .bold)
-                self.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
-                self.cellTextLabelAlignment = NSTextAlignment.left
-                self.cellSelectionColor = UIColor.lightGray
-                self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)
-                self.shouldKeepSelectedCellColor = false
-                self.animationDuration = 0.5
-                self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
-                self.arrowPadding = 15
-                self.maskBackgroundColor = UIColor.black
-                self.maskBackgroundOpacity = 0.3
-                self.shouldChangeTitleText = true
+        self.menuTitleColor = UIColor.darkGray
+        self.cellHeight = 50
+        self.cellBackgroundColor = UIColor.white
+        self.arrowTintColor = UIColor.white
+        self.cellSeparatorColor = UIColor.darkGray
+        self.cellTextLabelColor = UIColor.darkGray
+        self.selectedCellTextLabelColor = UIColor.darkGray
+        self.cellTextLabelFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        self.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
+        self.cellTextLabelAlignment = NSTextAlignment.left
+        self.cellSelectionColor = UIColor.lightGray
+        self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)
+        self.shouldKeepSelectedCellColor = false
+        self.animationDuration = 0.5
+        self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
+        self.arrowPadding = 15
+        self.maskBackgroundColor = UIColor.black
+        self.maskBackgroundOpacity = 0.3
+        self.shouldChangeTitleText = true
     }
 }
