@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "self:">
+   </FileRef>
+   <Group
+      location = "group:../../Sources"
+      name = "Sources">
+      <FileRef
+         location = "group:BTNavigationDropdownMenu.swift">
+      </FileRef>
+      <FileRef
+         location = "group:BTTitle.swift">
+      </FileRef>
+      <Group
+         location = "group:Extension"
+         name = "Extension">
+         <FileRef
+            location = "group:UIView+Extension.swift">
+         </FileRef>
+         <FileRef
+            location = "group:UIViewController+Extension.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Internal"
+         name = "Internal">
+         <FileRef
+            location = "group:BTTableViewCell.swift">
+         </FileRef>
+         <FileRef
+            location = "group:BTTableCellContentView.swift">
+         </FileRef>
+         <FileRef
+            location = "group:BTTableView.swift">
+         </FileRef>
+         <FileRef
+            location = "group:BTConfiguration.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:BTNavigationDropdownMenu.bundle">
+      </FileRef>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+   </Group>
+</Workspace>
