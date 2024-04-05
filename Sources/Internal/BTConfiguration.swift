@@ -48,7 +48,7 @@ final class BTConfiguration {
         // Path for image
         var bundle = Bundle(for: BTConfiguration.self)
                  // Get own resources bundle for SPM case
-        if let packageBundle = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
+        if let packageBundle = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
                 {
                      bundle = packageBundle
                  }
