@@ -46,18 +46,36 @@ final class BTConfiguration {
     
     init() {
         // Path for image
-        var bundle = Bundle(for: BTConfiguration.self)
-        // Get own resources bundle for SPM case
-        if let packageBundle = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
-        {
-            bundle = packageBundle
-        }  else {
-              fatalError("Failed to load resource bundle for BTNavigationDropdownMenu")
-          }
-        let url = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
-        let imageBundle = Bundle(url: url!)
-        let checkMarkImagePath = imageBundle?.path(forResource: "checkmark_icon", ofType: "png")
-        let arrowImagePath = imageBundle?.path(forResource: "arrow_down_icon", ofType: "png")
+        // Load the bundle directly using Bundle.module
+        guard let bundleURL = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle"),
+              let bundle = Bundle(url: bundleURL) else {
+            fatalError("Failed to load resource bundle for BTNavigationDropdownMenu")
+        }
+
+        // Load images from the bundle
+        if let checkMarkImage = UIImage(named: "checkmark_icon", in: bundle, compatibleWith: nil),
+           let arrowImage = UIImage(named: "arrow_down_icon", in: bundle, compatibleWith: nil) {
+            // Use checkMarkImage and arrowImage here
+            print("Images loaded successfully")
+        } else {
+            // Handle the case where images cannot be loaded
+            fatalError("Failed to load images from bundle")
+        }
+
+        
+//        let bundle = Bundle(for: BTConfiguration.self)
+//        let Testurl = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
+//        // Get own resources bundle for SPM case
+//        if let packageBundle = Bundle.module.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle").flatMap({ Bundle(url: $0) })
+//        {
+//            bundle = packageBundle
+//        }  else {
+//              fatalError("Failed to load resource bundle for BTNavigationDropdownMenu")
+//          }
+//        let url = bundle.url(forResource: "BTNavigationDropdownMenu", withExtension: "bundle")
+//        let imageBundle = Bundle(url: url!)
+//        let checkMarkImagePath = imageBundle?.path(forResource: "checkmark_icon", ofType: "png")
+//        let arrowImagePath = imageBundle?.path(forResource: "arrow_down_icon", ofType: "png")
         
         
         // Set default values
@@ -72,10 +90,11 @@ final class BTConfiguration {
         self.navigationBarTitleFont = UIFont.systemFont(ofSize: 17, weight: .bold)
         self.cellTextLabelAlignment = NSTextAlignment.left
         self.cellSelectionColor = UIColor.lightGray
-        self.checkMarkImage = UIImage(contentsOfFile: checkMarkImagePath!)
+        //self.checkMarkImage = checkMarkImage
+        //self.checkMarkImage = UIImage(contentsOfFile: checkMarkImage!)
         self.shouldKeepSelectedCellColor = false
         self.animationDuration = 0.5
-        self.arrowImage = UIImage(contentsOfFile: arrowImagePath!)
+        //self.arrowImage = UIImage(contentsOfFile: arrowImage!)
         self.arrowPadding = 15
         self.maskBackgroundColor = UIColor.black
         self.maskBackgroundOpacity = 0.3
