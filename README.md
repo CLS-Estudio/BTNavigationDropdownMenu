@@ -11,6 +11,9 @@ The elegant yet functional dropdown menu, written in Swift, appears underneath t
 ![alt tag](https://github.com/PhamBaTho/BTNavigationDropdownMenu/blob/master/Assets/Demo.gif)
 
 ## Installation
+### SPM 
+Add via package dependencies to this github
+
 ### CocoaPods
 **BTNavigationDropdownMenu** is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
