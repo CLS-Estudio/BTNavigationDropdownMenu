@@ -53,10 +53,10 @@ final class BTConfiguration {
         }
 
         // Load images from the bundle
-        if let checkMarkImage = UIImage(named: "checkmark_icon", in: bundle, compatibleWith: nil),
-           let arrowImage = UIImage(named: "arrow_down_icon", in: bundle, compatibleWith: nil) {
-            // Use checkMarkImage and arrowImage here
-            print("Images loaded successfully")
+        if let vcheckMarkImage = UIImage(named: "checkmark_icon", in: bundle, compatibleWith: nil),
+           let varrowImage = UIImage(named: "arrow_down_icon", in: bundle, compatibleWith: nil) {
+            self.checkMarkImage = vcheckMarkImage
+            self.arrowImage = varrowImage
         } else {
             // Handle the case where images cannot be loaded
             fatalError("Failed to load images from bundle")
