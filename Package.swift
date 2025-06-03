@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "BTNavigationDropdownMenu",
-    platforms: [.iOS(.v16)],
+    platforms: [.iOS(.v12)],
     products: [
         .library(name: "BTNavigationDropdownMenu", targets: ["BTNavigationDropdownMenu"]),
     ],
